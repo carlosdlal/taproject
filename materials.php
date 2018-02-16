@@ -3,11 +3,14 @@
         <title></title>
         <link rel="stylesheet" type="text/css" href="style.css">
         <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+        <script src="jquery.js"></script>
+        <script src="admin.js"></script>
     </head>
     <body>
         <div class="table-content">
             <form action="">
                 <table class="inner-table">
+                <!-- USE DATALIST INSTEAD OF SELECT-->
                     <tr>
                         <th><label for="material">Material</label></th>
                         <th><label for="subtype">Subtipo</label></th>
@@ -20,14 +23,19 @@
                     </tr>
                     <tr>
                         <td>
-                            <select>
+                            <select id="material" name=material>
+                                <option disabled selected value> Tipo de Material</option>
                                 <option value="acero">Acero</option>
                                 <option value="nylamid">Nylamid</option>
                                 <option value="aluminio">Aluminio</option>
                                 <option value="bronce">Bronce</option>
                             </select>
                         </td>
-                        <td></td>
+                        <td>
+                            <select name="subtype" id="subtype">
+                                <option>-----------</option>
+                            </select>
+                        </td>
                         <td></td>
                         <td></td>
                         <td></td>
