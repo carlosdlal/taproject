@@ -1,0 +1,65 @@
+<html>
+    <head>
+        <title></title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+        <script src="jquery.js"></script>
+        <script src="admin.js"></script>
+    </head>
+    <body>
+        <div class="table-content">
+            <div class="top-table">
+            </div>
+            <div class="bot-table">
+                <form action="">
+                    <!-- USE DATALIST INSTEAD OF SELECT-->
+                    <div class="inputs">
+                        <label for="material">Material</label>
+                        <select id="material" name=material>
+                            <option disabled selected value> Tipo de Material</option>
+                            <option value="Acero">ACERO</option>
+                            <option value="Nylamid">NYLAMID</option>
+                            <option value="Aluminio">ALUMINIO</option>
+                            <option value="Bronce">BRONCE</option>
+                        </select>
+                    </div>
+                    <div class="inputs">
+                        <label for="subtype">Subtipo</label>
+                        <select name="subtype" id="subtype">
+                            <option value="----------">-----------</option>
+                        </select>
+                    </div>
+                    <div class="inputs">
+                        <label for="figure">Figura</label>
+                    </div>
+                    <div class="inputs">
+                        <label for="x1">Medida 1</label>
+                    </div>
+                    <div class="inputs">
+                        <label for="x2">Medida 2</label>
+                    </div>
+                    <div class="inputs">
+                        <label for="x3">Medida 3</label>
+                    </div>
+                    <div class="inputs">
+                        <label for="price">Precio</label>
+                    </div>
+                    <div class="inputs">
+                        <label for="quantity">Cantidad</label>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="material-container">
+            <div class="materials-title">
+                <h3>MATERIAL</h3>
+            </div>
+            <div class="shadow-text">
+                <p>Comienza dando click en el simbolo "+"</p>
+            </div>
+            <div class="add-btn">
+                <i class="fas fa-plus font-center"></i>
+            </div>
+            
+    </body>
+</html>
