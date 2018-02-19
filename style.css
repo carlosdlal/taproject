@@ -61,7 +61,7 @@ h3{
     top: 50%;
     left: 50%;
     min-height: 80%;
-    width: 30%;
+    width: 400px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     background-color: white;
     z-index: 3;
@@ -107,9 +107,12 @@ input[type=number], select {
     border-radius: 4px;
     box-sizing: border-box;
 }
+button{
+    width: 50px;
+}
 .x1, .x2, .x3, .price{
     display: none;
-    width: 150px;
+    width: 80%;
 }
 .metric{
     width: auto;
@@ -120,4 +123,7 @@ input[type=number], select {
 }
 .arrays-table{
     border-collapse: collapse;
+}
+.auxinch{
+    border-style: none !important;
 }

@@ -36,20 +36,23 @@
                     </div>
                     <label id="lblx1" for="x1"></label>
                     <div class="inputs x1">
-                        <input autocomplete="off" step="any" type="number" id="x1" name="x1">
-                        <select  class="metric" name="x1-metric">
-                            <option value="inches">inch</option>
-                            <option value="mts">mts</option>
-                        </select>
+                        <table>
+                            <tr>
+                                <td><input autocomplete="off" step="any" type="number" id="x1" name="x1"></td>
+                                <td><button type="button" id="x1-btn" >X</button></td>
+                                <td><input  id="x1-aux" class="auxinch" type="number" readonly></input></td>
+                            </tr>
+                        </table>  
                     </div>
                     <label id="lblx2" for="x2"></label>
                     <div class="inputs x2">
-                        <input type="number" id="x2" step="any" autocomplete="off" name="x2">
-                        <select  class="metric" name="x2-metric">
-                            <option value="inches">inch</option>
-                            <option value="mts">mts</option>
-                        </select>
-
+                        <table>
+                            <tr>
+                                <td><input autocomplete="off" step="any" type="number" id="x2" name="x2"></td>
+                                <td><button type="button" id="x2-btn" >X</button></td>
+                                <td><input  id="x2-aux" class="auxinch" type="number" readonly></input></td>
+                            </tr>
+                        </table>    
                     </div>
                     <label id="lblx3" for="x3"></label>
                     <div class="inputs x3">

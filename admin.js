@@ -3,9 +3,8 @@ $( document ).ready(function() {
     $material = $("select[name='material']");
     $subtype = $("select[name='subtype']");
     $figure = $("select[name='figure']");
-    $x1_metric=$("select[name='x1-metric']");
-    $x1_value=$("input[name='x1-value']"); 
-
+    $x2 =$('#x2').val();
+    $x3 =$('#x3').val();
     $material.change(function(){
         if($(material).val()=="Acero"){
             $("select[name='subtype'] option").remove();
@@ -116,13 +115,22 @@ $( document ).ready(function() {
         }
 
     });
-
-    $x1_value.change(function(){
-        if($(x1_metric).val()=="mts" ){
-            alert("Hola");
-        }
-
+    $('#x1-btn').click(function () {
+        $xvalue=$('#x1').val()*39.370;
+        $( "#in-inches" ).show();
+        $('#x1-aux').val($xvalue +"Pulgadas");
     });
-    
+    $('#x2-btn').click(function () {
+        if($('#x2').val()!=""){
+            $xvalue=$('#x2').val()*39.370;
+            $( "#in-inches" ).show();
+            $('#x2-aux').val($xvalue + "Pulgadas");
+        }
+        else{
+            $( "#in-inches" ).hide();
+        }
+    });
+
+
 
 });
