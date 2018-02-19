@@ -12,9 +12,8 @@
             </div>
             <div class="bot-table">
                 <form action="">
-                    <!-- USE DATALIST INSTEAD OF SELECT-->
                     <div class="inputs">
-                        <label for="material">Material</label>
+                        <label for="material">MATERIAL</label>
                         <select id="material" name=material>
                             <option disabled selected value> Tipo de Material</option>
                             <option value="Acero">ACERO</option>
@@ -24,28 +23,49 @@
                         </select>
                     </div>
                     <div class="inputs">
-                        <label for="subtype">Subtipo</label>
+                        <label for="subtype">SUBTIPO</label>
                         <select name="subtype" id="subtype">
                             <option value="----------">-----------</option>
                         </select>
                     </div>
-                    <div class="inputs">
-                        <label for="figure">Figura</label>
+                    <div class="inputs figure">
+                        <label  for="figure">FORMA</label>
+                        <select  name="figure" id="figure">
+                            <option value="----------">-----------</option>
+                        </select>
+                    </div>
+                    <label id="lblx1" for="x1"></label>
+                    <div class="inputs x1">
+                        <input autocomplete="off" step="any" type="number" id="x1" name="x1">
+                        <select  class="metric" name="x1-metric">
+                            <option value="inches">inch</option>
+                            <option value="mts">mts</option>
+                        </select>
+                    </div>
+                    <label id="lblx2" for="x2"></label>
+                    <div class="inputs x2">
+                        <input type="number" id="x2" step="any" autocomplete="off" name="x2">
+                        <select  class="metric" name="x2-metric">
+                            <option value="inches">inch</option>
+                            <option value="mts">mts</option>
+                        </select>
+
+                    </div>
+                    <label id="lblx3" for="x3"></label>
+                    <div class="inputs x3">
+                        <input type="number" id="x3" name="x3" step="any" autocomplete="off">
+                        <select  class="metric" name="x3-metric">
+                            <option value="inches">inch</option>
+                            <option value="mts">mts</option>
+                        </select>
+                    </div>
+                    <div class="inputs price">
+                        <label for="price">PRECIO POR KILO</label>
+                        <span class="currency">$</span><input type="number" id="price" name="x3" autocomplete="off">
+                        
                     </div>
                     <div class="inputs">
-                        <label for="x1">Medida 1</label>
-                    </div>
-                    <div class="inputs">
-                        <label for="x2">Medida 2</label>
-                    </div>
-                    <div class="inputs">
-                        <label for="x3">Medida 3</label>
-                    </div>
-                    <div class="inputs">
-                        <label for="price">Precio</label>
-                    </div>
-                    <div class="inputs">
-                        <label for="quantity">Cantidad</label>
+                        <label for="quantity">CANTIDAD</label>
                     </div>
                 </form>
             </div>
@@ -54,12 +74,20 @@
             <div class="materials-title">
                 <h3>MATERIAL</h3>
             </div>
+            <div>
+                <table class="arrays-table">
+                    <tr></tr><th>Material</th>
+                    <th>Medidas</th>
+                    <th>Cantdad</th>
+                    <th>Precio Unitario</th></tr>
+                </table>
+            </div>
             <div class="shadow-text">
                 <p>Comienza dando click en el simbolo "+"</p>
             </div>
             <div class="add-btn">
                 <i class="fas fa-plus font-center"></i>
             </div>
-            
+        </div>
     </body>
 </html>

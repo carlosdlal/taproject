@@ -78,13 +78,14 @@ h3{
 .bot-table{
     bottom: 0;
     width: 100%;
-    background-color: red;
+    background-color: white;
     height: 85%;
     position: fixed;
 }
 .inputs{
     width: 100%;
     text-align: center;
+    margin: 5px 0;
 }
 select, option {
     text-align: center;   
@@ -93,11 +94,11 @@ label{
     display: block;
     position: relative;
     font-weight: bold;
-    margin-top: 5px;
-    margin-bottom: 5px;
+    margin: 0;
     outline:0;
+    text-align: center;
 }
-input[type=text], select {
+input[type=number], select {
     width: 90%;
     padding: 5px 5px;
     margin: 5px;
@@ -105,5 +106,18 @@ input[type=text], select {
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
-    font-size: 
+}
+.x1, .x2, .x3, .price{
+    display: none;
+    width: 150px;
+}
+.metric{
+    width: auto;
+    display: inline-block;
+}
+.currency{
+    font-size: 20px;
+}
+.arrays-table{
+    border-collapse: collapse;
 }
