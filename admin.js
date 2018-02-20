@@ -3,8 +3,9 @@ $( document ).ready(function() {
     $material = $("select[name='material']");
     $subtype = $("select[name='subtype']");
     $figure = $("select[name='figure']");
-    $x2 =$('#x2').val();
-    $x3 =$('#x3').val();
+    $value1="";
+    $value2="";
+    $value3="";
     $material.change(function(){
         if($(material).val()=="Acero"){
             $("select[name='subtype'] option").remove();
@@ -42,7 +43,6 @@ $( document ).ready(function() {
             $("<option>AMPCO 18</option>").appendTo($subtype);
         }
     });
-
     $subtype.change(function(){
         $( ".price" ).hide();
         if($(subtype).val()!="bh" && $(material).val()=="Acero"){
@@ -70,7 +70,6 @@ $( document ).ready(function() {
             $("#lblx3").append("LARGO");
         }
     });
-
     $figure.change(function(){
         $( ".price" ).show();
         if($(figure).val()=="round"){
@@ -116,11 +115,29 @@ $( document ).ready(function() {
 
     });
     $('#x1-btn').click(function () {
-        $xvalue=$('#x1').val()*39.370;
-        $( "#in-inches" ).show();
-        $('#x1-aux').val($xvalue +"Pulgadas");
+        $value1=$('#x1').val();
+        if($('#x1-btn').val()=="inch"){
+            $value1=$('#x1').val()*39.370;
+            $( "#in-inches" ).show();
+            $('#x1-aux').val($value1 +" Pulgadas");
+            $('#x1-btn').val("mts");
+            $("#x1-btn").text("Metros");
+        }
+        if($('#x1-btn').val()=="mts"){
+            $('#x1-btn').val("inch");
+            $("#x1-btn").text("Pulgadas");
+        }
     });
     $('#x2-btn').click(function () {
+        if($('#x2-btn').val()=="inch"){
+            $xvalue=$('#x2').val()*39.370;
+            $( "#in-inches" ).show();
+            $('#x2-aux').val($xvalue +" Pulgadas");
+            $('#x2-btn').val("mts");
+            $("#x2-btn").text("Metros");
+        }
+    });
+    $('#x3-btn').click(function () {
         if($('#x2').val()!=""){
             $xvalue=$('#x2').val()*39.370;
             $( "#in-inches" ).show();
@@ -130,6 +147,11 @@ $( document ).ready(function() {
             $( "#in-inches" ).hide();
         }
     });
+
+    $("#x1, #x2, #x3, #price").change(function() {
+
+    });
+
 
 
 
