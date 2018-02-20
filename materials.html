@@ -8,11 +8,9 @@
     </head>
     <body>
         <div class="table-content">
-            <div class="top-table">
-            </div>
             <div class="bot-table">
                 <form action="">
-                    <div class="inputs">
+                    <div class="inputs grey">
                         <label for="material">MATERIAL</label>
                         <select id="material" name=material>
                             <option disabled selected value> Tipo de Material</option>
@@ -28,14 +26,14 @@
                             <option value="----------">-----------</option>
                         </select>
                     </div>
-                    <div class="inputs figure">
+                    <div class="inputs figure grey">
                         <label  for="figure">FORMA</label>
                         <select  name="figure" id="figure">
                             <option value="----------">-----------</option>
                         </select>
                     </div>
-                    <label id="lblx1" for="x1"></label>
                     <div class="inputs x1">
+                        <label id="lblx1" for="x1"></label>
                         <table>
                             <tr>
                                 <td><input autocomplete="off" step="any" type="number" id="x1" name="x1"></td>
@@ -44,8 +42,9 @@
                             </tr>
                         </table>  
                     </div>
-                    <label id="lblx2" for="x2"></label>
+                    
                     <div class="inputs x2">
+                        <label id="lblx2" for="x2"></label>
                         <table>
                             <tr>
                                 <td><input autocomplete="off" step="any" type="number" id="x2" name="x2"></td>
@@ -54,21 +53,44 @@
                             </tr>
                         </table>    
                     </div>
-                    <label id="lblx3" for="x3"></label>
-                    <div class="inputs x3">
+                    
+                    <div class="inputs x3 grey">
+                            <label id="lblx3" for="x3"></label>
                         <input type="number" id="x3" name="x3" step="any" autocomplete="off">
                         <select  class="metric" name="x3-metric">
                             <option value="inches">inch</option>
                             <option value="mts">mts</option>
                         </select>
                     </div>
-                    <div class="inputs price">
-                        <label for="price">PRECIO UNITARIO X KILO</label>
-                        <span class="currency">$</span><input type="number" id="price" name="price" autocomplete="off">
-                        
+                    <div class="inputs price grey">
+                        <table>
+                            <tr>
+                                <td>
+                                    <label id="currencyLbl" for="price">PRECIO UNITARIO X KILO</label>
+                                    <span class="currency">$</span><input type="number" id="price" name="price" autocomplete="off">
+                                </td>
+                                <td>
+                                    <label for="weight">PESO</label>
+                                    <input type="text" class="auxinch grey" name="weight" id="weight" autocomplete="off" readonly>
+                                </td>
+                            </tr>
+                        </table>                        
                     </div>
-                    <div class="inputs">
-                        <label for="quantity">CANTIDAD</label>
+                    <div class="inputs quant">
+                        <table>
+                            <tr>
+                                <td>
+                                    <label for="quantity">CANTIDAD</label>
+                                    <input  value="1" min="0" step="1" type="number" name="quantity" id="quantity" autocomplete="off">
+                                </td>
+                                <td>
+                                    <label for="totalQ">TOTAL</label>
+                                    <input type="text" class="auxinch" name="totalQ" id="totalQ" autocomplete="off" readonly>
+                                </td>
+                            </tr>
+                        </table>
+                        
+                    
                     </div>
                 </form>
             </div>

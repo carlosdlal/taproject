@@ -6,6 +6,7 @@ $( document ).ready(function() {
     $value1="";
     $value2="";
     $value3="";
+    $weight="";
     $material.change(function(){
         if($(material).val()=="Acero"){
             $("select[name='subtype'] option").remove();
@@ -45,8 +46,10 @@ $( document ).ready(function() {
     });
     $subtype.change(function(){
         $( ".price" ).hide();
+        $( ".quant" ).hide();
         if($(subtype).val()!="bh" && $(material).val()=="Acero"){
             $( ".figure" ).show();
+            
             $("select[name='figure'] option").remove();
             $("<option disabled selected value>Forma</option>").appendTo($figure);
             $("<option value='round'>Redondo</option>").appendTo($figure);
@@ -58,6 +61,7 @@ $( document ).ready(function() {
         }
         else{
             $( ".price" ).show();
+            $( ".quant" ).show();
             $( ".figure" ).hide();
             $( ".x1" ).show();
             $( ".x2" ).show();
@@ -72,6 +76,7 @@ $( document ).ready(function() {
     });
     $figure.change(function(){
         $( ".price" ).show();
+        $( ".quant" ).show();
         if($(figure).val()=="round"){
             $( ".x1" ).show();
             $( ".x2" ).show();
@@ -123,7 +128,9 @@ $( document ).ready(function() {
             $('#x1-btn').val("mts");
             $("#x1-btn").text("Metros");
         }
-        if($('#x1-btn').val()=="mts"){
+        else if($('#x1-btn').val()=="mts"){
+            $value1=$('#x1').val()*0.0254;
+            $('#x1').val($value1)
             $('#x1-btn').val("inch");
             $("#x1-btn").text("Pulgadas");
         }
@@ -148,11 +155,23 @@ $( document ).ready(function() {
         }
     });
 
-    $("#x1, #x2, #x3, #price").change(function() {
-
+    $("#x1, #x2, #x3").change(function() {
+        if($('#x1').val()!="" && $('#x2').val()!=""){
+            if(($(material).val() =="Acero") && ($(figure).val()=="round")){
+                $value1=$('#x1').val();
+                $value2=$('#x2').val();
+                $weight=((Math.pow($value1,2)*4)*$value2);
+                $('#weight').val($weight + " Kgs.");
+            }
+            if(($(material).val() =="Acero") && ($(figure).val()=="square")){
+                alert("Hola mundo");
+            }
+        }
     });
 
-
-
-
+    $("#price , #quantity").change(function() {
+        $price=$('#price').val() * $('#quantity').val();
+        $('#totalQ').val($price);
+    });
 });
+
