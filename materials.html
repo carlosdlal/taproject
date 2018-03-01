@@ -10,7 +10,7 @@
         <div class="table-content">
             <div class="bot-table">
                 <form action="">
-                    <div class="inputs grey">
+                    <div class="inputs">
                         <label for="material">MATERIAL</label>
                         <select id="material" name=material>
                             <option disabled selected value> Tipo de Material</option>
@@ -26,52 +26,67 @@
                             <option value="----------">-----------</option>
                         </select>
                     </div>
-                    <div class="inputs figure grey">
+                    <div class="inputs figure">
                         <label  for="figure">FORMA</label>
                         <select  name="figure" id="figure">
                             <option value="----------">-----------</option>
                         </select>
                     </div>
-                    <div class="inputs x1">
+                    <div class="inputs x1 grey">
                         <label id="lblx1" for="x1"></label>
                         <table>
                             <tr>
                                 <td><input autocomplete="off" step="any" type="number" id="x1" name="x1"></td>
-                                <td><button type="button" id="x1-btn" value="inch" >Pulgadas</button></td>
-                                <td><input  id="x1-aux" class="auxinch" type="text" readonly></input></td>
+                                <td><button type="button" id="x1-btn" value="inch" disabled="true" >Pulgadas</button></td>
                             </tr>
                         </table>  
-                    </div>
-                    
-                    <div class="inputs x2">
+                    </div>  
+                    <div class="inputs x2 grey">
                         <label id="lblx2" for="x2"></label>
                         <table>
                             <tr>
-                                <td><input autocomplete="off" step="any" type="number" id="x2" name="x2"></td>
-                                <td><button type="button" id="x2-btn" >X</button></td>
-                                <td><input  id="x2-aux" class="auxinch" type="text" readonly></input></td>
+                                <td>
+                                    <input autocomplete="off" step="any" type="number" id="x2" name="x2">
+                                </td>
+                                <td>
+                                    <label for="">Pulgadas</label>
+                                    <input type="radio" id="radio-inch" name="x2-btn" value="inches" >
+                                </td>
+                                <td>
+                                    <label for="">Metros</label>
+                                    <input type="radio" id="radio-mts" name="x2-btn" value="meters" checked >
+                                </td>
                             </tr>
                         </table>    
                     </div>
-                    
                     <div class="inputs x3 grey">
-                            <label id="lblx3" for="x3"></label>
-                        <input type="number" id="x3" name="x3" step="any" autocomplete="off">
-                        <select  class="metric" name="x3-metric">
-                            <option value="inches">inch</option>
-                            <option value="mts">mts</option>
-                        </select>
-                    </div>
-                    <div class="inputs price grey">
+                        <label id="lblx3" for="x3"></label>
                         <table>
                             <tr>
                                 <td>
-                                    <label id="currencyLbl" for="price">PRECIO UNITARIO X KILO</label>
+                                    <input autocomplete="off" step="any" type="number" id="x3" name="x3">
+                                </td>
+                                <td>
+                                    <label for="">Pulgadas</label>
+                                    <input type="radio" id="radio-inch" name="x3-btn" value="inches" >
+                                </td>
+                                <td>
+                                    <label for="">Metros</label>
+                                    <input type="radio" id="radio-mts" name="x3-btn" value="meters" checked >
+                                </td>
+                            </tr>
+                        </table>        
+                    </div>
+                    <div class="inputs price">
+                        <table>
+                            <tr>
+                                <td>
+                                    <label id="currencyLbl" for="price">PRECIO X KILO</label>
                                     <span class="currency">$</span><input type="number" id="price" name="price" autocomplete="off">
                                 </td>
                                 <td>
                                     <label for="weight">PESO</label>
-                                    <input type="text" class="auxinch grey" name="weight" id="weight" autocomplete="off" readonly>
+                                    <input type="number" class="auxinch grey" name="weight" id="weight" autocomplete="off" readonly><strong>Kgs</strong>
                                 </td>
                             </tr>
                         </table>                        
@@ -89,13 +104,13 @@
                                 </td>
                             </tr>
                         </table>
-                        
-                    
                     </div>
+                    <button id="submit" class="actionBtns" type="button"><i class="fas fa-check"></i></button>
+                    <button id="cancel" class="actionBtns" type="button"><i class="fas fa-times"></i></button>
                 </form>
             </div>
         </div>
-        <div class="material-container">
+        <div style="display:none" class="material-container">
             <div class="materials-title">
                 <h3>MATERIAL</h3>
             </div>

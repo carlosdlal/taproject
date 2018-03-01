@@ -60,7 +60,7 @@ h3{
     transform: translate(-50%,-50%);
     top: 50%;
     left: 50%;
-    min-height: 80%;
+    min-height: 90%;
     width: 400px;
     padding: 10px 0;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -83,6 +83,9 @@ h3{
     text-align: center;
     margin: 0;
     padding-top: 5px;
+    border-style: none none solid none;
+    border-width: thin;
+    border-color: #E0E0E0; 
 }
 select, option {
     text-align: center;   
@@ -159,10 +162,32 @@ input[type=number]#price{
 #weight, #totalQ{
     font-size: 15px;
     font-weight: bold;
+    width: 70px;
+    margin-left: 10px;
+    text-align:right;
 }
 .quant{
     display: none;
 }
 #quantity{
     width: 50px;
+}
+.actionBtns{
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    position: fixed;
+    margin: 15px;
+    font-size: 25px;
+}
+#cancel{
+    background-color: red;
+    bottom: 0;
+    left: 0;
+}
+#submit{
+    background-color: #4CAF50;
+    bottom: 0;
+    right: 0;
+    
 }
