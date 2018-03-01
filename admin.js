@@ -50,7 +50,6 @@ $( document ).ready(function() {
         $( ".quant" ).hide();
         if($(subtype).val()!="bh" && $(material).val()=="Acero"){
             $( ".figure" ).show();
-            
             $("select[name='figure'] option").remove();
             $("<option disabled selected value>Forma</option>").appendTo($figure);
             $("<option value='round'>Redondo</option>").appendTo($figure);
@@ -59,6 +58,12 @@ $( document ).ready(function() {
             if($(subtype).val()=="1018"||$(subtype).val()=="12L14"){
                 $("<option value='hex'>Hexagonal</option>").appendTo($figure);
             }
+            $("#x1-btn1").val("inch");
+            alert($("#x1-btn1").val());
+            $("#x1-btn1").empty();
+            $("#x1-btn1").append("Pulgadas");
+            $("#x1-btn2").empty();
+            $("#x1-btn2").hide();
         }
         else if($(subtype).val()=="bh" && $(material).val()=="Acero"){
             $( ".price" ).show();
@@ -69,6 +74,12 @@ $( document ).ready(function() {
             $( ".x3" ).show();
             $("#lblx1").empty();
             $("#lblx1").append("DIAMETRO INTERNO");
+            $("#x1-btn1").val("mm");
+            $("#x1-btn1").empty();
+            $("#x1-btn1").append("Milimetros");
+            $("#x1-btn2").show();
+            $("#x1-btn2").val("inch");
+            $("#x1-btn2").append("Pulgadas");
             $("#lblx2").empty();
             $("#lblx2").append("DIAMETRO EXTERNO");
             $("#lblx3").empty();
@@ -121,32 +132,10 @@ $( document ).ready(function() {
         }
 
     });
-    $('#x2-btn').click(function () {
-        if($('#x2-btn').val()=="inch"){
-            $xvalue=$('#x2').val()*39.370;
-            $( "#in-inches" ).show();
-            $('#x2-aux').val($xvalue +" Pulgadas");
-            $('#x2-btn').val("mts");
-            $("#x2-btn").text("Metros");
-        }
-    });
-    
-    $('#x3-btn').click(function () {
-        if($('#x2').val()!=""){
-            $xvalue=$('#x2').val()*39.370;
-            $( "#in-inches" ).show();
-            $('#x2-aux').val($xvalue + "Pulgadas");
-        }
-        else{
-            $( "#in-inches" ).hide();
-        }
-    });
-
     $("#x1, #x2, #x3 , #radio-inch, #radio-mts").change(function() {
         $('#weight').val("");
         if($('#x1').val()!="" && $('#x2').val()!="" && $('#x3').val()==""){
             if(($(material).val() =="Acero") && ($(figure).val()=="round")){
-                
                 if($('input[name=x2-btn]:checked').val()=="meters"){
                     $value1=$('#x1').val();
                     $value2=$('#x2').val();
@@ -229,6 +218,14 @@ $( document ).ready(function() {
     $("#price , #quantity").change(function() {
         $price=$('#price').val() *$('#weight').val()* $('#quantity').val();
         $('#totalQ').val($price);
+    });
+    $('.buttonToggle1').click(function() {
+        $(this).toggleClass("active", true);
+        $('.buttonToggle2').toggleClass("active", false);
+    });
+    $('.buttonToggle2').click(function() {
+        $(this).toggleClass("active", true);
+        $('.buttonToggle1').toggleClass("active", false);
     });
 });
 

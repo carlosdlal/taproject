@@ -191,3 +191,6 @@ input[type=number]#price{
     right: 0;
     
 }
+.buttonToggle1:active, .buttonToggle2:active , .active {
+    background-color:blue;
+}
