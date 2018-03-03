@@ -194,3 +194,6 @@ input[type=number]#price{
 .buttonToggle1:active, .buttonToggle2:active , .active {
     background-color:blue;
 }
+.m1 label, .m2 label{
+    font-weight: 100;
+}

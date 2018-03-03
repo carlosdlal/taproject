@@ -34,11 +34,17 @@
                     </div>
                     <div class="inputs x1 grey">
                         <label id="lblx1" for="x1"></label>
-                        <table>
+                        <table class="m1-table">
                             <tr>
                                 <td><input autocomplete="off" step="any" type="number" id="x1" name="x1"></td>
-                                <td><button class="buttonToggle1 active measureBtns" type="button" id="x1-btn1" value=""></button></td>
-                                <td><button class="buttonToggle2 measureBtns" type="button" id="x1-btn2" value="" ></button></td>
+                                <td class="m1">
+                                    <label id="lbl1x1"></label>
+                                    <input type="radio" class="measures" id="measure1x1" name="measures1" value="" checked>
+                                </td>
+                                <td class="m2">
+                                    <label id="lbl1x2"></label>
+                                    <input type="radio" class="measures" id="measure1x2" name="measures1" value="" >
+                                </td>
                             </tr>
                         </table>  
                     </div>  
@@ -47,13 +53,13 @@
                         <table>
                             <tr>
                                 <td><input autocomplete="off" step="any" type="number" id="x2" name="x2"></td>
-                                <td>
-                                    <label for="">Pulgadas</label>
-                                    <input type="radio" id="radio-inch" name="x2-btn" value="inches" >
+                                <td class="m1">
+                                    <label id="lbl2x1"></label>
+                                    <input type="radio" class="measures" id="measure2x1" name="measures2" value="" checked >
                                 </td>
-                                <td>
-                                    <label for="">Metros</label>
-                                    <input type="radio" id="radio-mts" name="x2-btn" value="meters" checked >
+                                <td class="m2">
+                                    <label id="lbl2x2"></label>
+                                    <input type="radio" class="measures" id="measure2x2" name="measures2" value="">
                                 </td>
                             </tr>
                         </table>    
@@ -65,13 +71,13 @@
                                 <td>
                                     <input autocomplete="off" step="any" type="number" id="x3" name="x3">
                                 </td>
-                                <td>
+                                <td class="m1">
                                     <label for="">Pulgadas</label>
-                                    <input type="radio" id="radio-inch" name="x3-btn" value="inches" >
+                                    <input class="measures" type="radio" id="radio-inch" name="measures3" value="inches" checked >
                                 </td>
-                                <td>
+                                <td class="m2">
                                     <label for="">Metros</label>
-                                    <input type="radio" id="radio-mts" name="x3-btn" value="meters" checked >
+                                    <input class="measures" type="radio" id="radio-mts" name="measures3" value="meters" >
                                 </td>
                             </tr>
                         </table>        

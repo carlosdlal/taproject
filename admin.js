@@ -48,42 +48,63 @@ $( document ).ready(function() {
         $('#weight').val("");
         $( ".price" ).hide();
         $( ".quant" ).hide();
-        if($(subtype).val()!="bh" && $(material).val()=="Acero"){
+        if($(material).val()=="Acero"){
+            if($(subtype).val()!="bh"){
+                $( ".figure" ).show();
+                $("select[name='figure'] option").remove();
+                $("<option disabled selected value>Forma</option>").appendTo($figure);
+                $("<option value='round'>Redondo</option>").appendTo($figure);
+                $("<option value='plate'>Solera</option>").appendTo($figure);
+                $("<option value='square'>Cuadrado</option>").appendTo($figure);
+                if($(subtype).val()=="1018"||$(subtype).val()=="12L14"){
+                    $("<option value='hex'>Hexagonal</option>").appendTo($figure);
+                }
+                $("#lbl1x1").empty();
+                $("#lbl1x1").append("Pulgadas");
+                $("#measure1x1").val("inches");
+                $("#lbl1x2").empty();
+                $(".m1-table .m2").hide();
+                $("#lbl2x1").empty();
+                $("#lbl2x1").append("Pulgadas");
+                $("#measure2x1").val("inches");
+                $("#lbl2x2").empty();
+                $("#lbl2x2").append("Metros");
+                $("#measure2x2").val("meters");
+            }
+            else if($(subtype).val()=="bh"){
+                $( ".price" ).show();
+                $( ".quant" ).show();
+                $( ".figure" ).hide();
+                $( ".x1" ).show();
+                $( ".x2" ).show();
+                $( ".x3" ).show();
+                $(".m1-table .m2").show();
+                $("#lblx1").empty();
+                $("#lblx1").append("Diametro Externo");
+                $("#lblx2").empty();
+                $("#lblx2").append("Diametro Interno");
+                $("#lblx3").empty();
+                $("#lblx3").append("Largo");
+                $("#lbl1x1").empty();
+                $("#lbl1x1").append("Milimetros");
+                $("#measure1x1").val("mm");
+                $("#lbl1x2").empty();
+                $("#lbl1x2").append("Pulgadas");
+                $("#measure1x2").val("inches");
+                $("#lbl2x1").empty();
+                $("#lbl2x1").append("Milimetros");
+                $("#measure2x1").val("mm");
+                $("#lbl2x2").empty();
+                $("#lbl2x2").append("Pulgadas");
+                $("#measure2x2").val("inches");
+            }
+        }
+        if($(material).val()=="Bronce"){
             $( ".figure" ).show();
             $("select[name='figure'] option").remove();
             $("<option disabled selected value>Forma</option>").appendTo($figure);
             $("<option value='round'>Redondo</option>").appendTo($figure);
-            $("<option value='plate'>Solera</option>").appendTo($figure);
-            $("<option value='square'>Cuadrado</option>").appendTo($figure);
-            if($(subtype).val()=="1018"||$(subtype).val()=="12L14"){
-                $("<option value='hex'>Hexagonal</option>").appendTo($figure);
-            }
-            $("#x1-btn1").val("inch");
-            alert($("#x1-btn1").val());
-            $("#x1-btn1").empty();
-            $("#x1-btn1").append("Pulgadas");
-            $("#x1-btn2").empty();
-            $("#x1-btn2").hide();
-        }
-        else if($(subtype).val()=="bh" && $(material).val()=="Acero"){
-            $( ".price" ).show();
-            $( ".quant" ).show();
-            $( ".figure" ).hide();
-            $( ".x1" ).show();
-            $( ".x2" ).show();
-            $( ".x3" ).show();
-            $("#lblx1").empty();
-            $("#lblx1").append("DIAMETRO INTERNO");
-            $("#x1-btn1").val("mm");
-            $("#x1-btn1").empty();
-            $("#x1-btn1").append("Milimetros");
-            $("#x1-btn2").show();
-            $("#x1-btn2").val("inch");
-            $("#x1-btn2").append("Pulgadas");
-            $("#lblx2").empty();
-            $("#lblx2").append("DIAMETRO EXTERNO");
-            $("#lblx3").empty();
-            $("#lblx3").append("LARGO");
+            $("<option value='square'>Buje</option>").appendTo($figure);
         }
     });
     $figure.change(function(){
@@ -132,86 +153,123 @@ $( document ).ready(function() {
         }
 
     });
-    $("#x1, #x2, #x3 , #radio-inch, #radio-mts").change(function() {
+    $("#x1, #x2, #x3 , .measures").change(function() {
         $('#weight').val("");
+        //Materiales Redondos, Cuadrados y Hexagonales
         if($('#x1').val()!="" && $('#x2').val()!="" && $('#x3').val()==""){
-            if(($(material).val() =="Acero") && ($(figure).val()=="round")){
-                if($('input[name=x2-btn]:checked').val()=="meters"){
-                    $value1=$('#x1').val();
-                    $value2=$('#x2').val();
-                    $weight=((Math.pow($value1,2)*4)*$value2);
-                    $('#weight').val($weight);
+            //Aceros
+            if($(material).val() =="Acero"){
+                if($(figure).val()=="round"){
+                    if($('input[name=measures2]:checked').val()=="meters"){
+                        $value1=$('#x1').val();
+                        $value2=$('#x2').val();
+                        $weight=((Math.pow($value1,2)*4)*$value2);
+                        $('#weight').val($weight);
+                    }
+                    else if($('input[name=measures2]:checked').val()=="inches"){
+                        $value1=$('#x1').val();
+                        $value2=$('#x2').val()*0.0254;
+                        $weight=((Math.pow($value1,2)*4)*$value2);
+                        $('#weight').val($weight);
+                    }
                 }
-                else if($('input[name=x2-btn]:checked').val()=="inches"){
-                    $value1=$('#x1').val();
-                    $value2=$('#x2').val()*0.0254;
-                    $weight=((Math.pow($value1,2)*4)*$value2);
-                    $('#weight').val($weight);
+                if($(figure).val()=="square"){
+                    if($('input[name=measures2]:checked').val()=="meters"){
+                        $value1=$('#x1').val();
+                        $value2=$('#x2').val()/0.0254;
+                        $weight=$value1*$value1*$value2*.13;
+                        $('#weight').val($weight);
+                    }
+                    else if($('input[name=measures2]:checked').val()=="inches"){
+                        $value1=$('#x1').val();
+                        $value2=$('#x2').val();
+                        $weight=$value1*$value1*$value2*.13;
+                        $('#weight').val($weight);
+                    }
+                }
+                if($(figure).val()=="hex"){
+                    if($('input[name=measures2]:checked').val()=="meters"){
+                        $value1=$('#x1').val();
+                        $value2=$('#x2').val()/0.0254;
+                        $weight=$value1*$value1*$value2*4.5;
+                        $('#weight').val($weight);
+                    }
+                    else if($('input[name=measures2]:checked').val()=="inches"){
+                        $value1=$('#x1').val();
+                        $value2=$('#x2').val();
+                        $weight=$value1*$value1*$value2*4.5;
+                        $('#weight').val($weight);
+                    }
                 }
             }
-            if(($(material).val() =="Acero") && ($(figure).val()=="square")){
-                if($('input[name=x2-btn]:checked').val()=="meters"){
-                    $value1=$('#x1').val();
-                    $value2=$('#x2').val()/0.0254;
-                    $weight=$value1*$value1*$value2*.13;
-                    $('#weight').val($weight);
-                }
-                else if($('input[name=x2-btn]:checked').val()=="inches"){
-                    $value1=$('#x1').val();
-                    $value2=$('#x2').val();
-                    $weight=$value1*$value1*$value2*.13;
-                    $('#weight').val($weight);
+            if($(material).val() =="Bronce"){
+                if($(figure).val()=="round"){
+                    if($('input[name=measures2]:checked').val()=="meters"){
+                        $value1=$('#x1').val();
+                        $value2=$('#x2').val();
+                        $weight=(((Math.pow($value1,2)*1.7)*$value2)/14);
+                        $('#weight').val($weight);
+                    }
+                    else if($('input[name=measures2]:checked').val()=="inches"){
+                        $value1=$('#x1').val();
+                        $value2=$('#x2').val()*0.0254;
+                        $weight=(((Math.pow($value1,2)*1.7)*$value2)/14);
+                        $('#weight').val($weight);
+                    }
                 }
             }
         }
+        //Materiales Soleras, Barra Huecas, Bujes
         if($('#x1').val()!="" && $('#x2').val()!="" && $('#x3').val()!=""){
-            if(($(material).val() =="Acero") && ($(figure).val()=="plate")){
-                if($('input[name=x2-btn]:checked').val()=="meters"){
-                    $value2=$('#x2').val()/0.0254;
-                }
-                else if($('input[name=x2-btn]:checked').val()=="inches"){
-                    $value2=$('#x2').val();
-                }
-                if($('input[name=x3-btn]:checked').val()=="meters"){
-                    $value3=$('#x3').val()/0.0254;
-                }
-                else if($('input[name=x3-btn]:checked').val()=="inches"){
-                    $value3=$('#x3').val();
-                }
-                $value1=$('#x1').val();
-                $weight=$value1*$value2*$value3*.13;
-                $('#weight').val($weight);
-            }
-            if(($(material).val() =="Acero") && ($(subtype).val()=="bh")){
-                if($('input[name=x1-btn]:checked').val()=="mm"){
-                    $value1=$('#x1').val()/25.4;
-                }
-                else if($('input[name=x1-btn]:checked').val()=="inches"){
+            //Aceros
+            if($(material).val() =="Acero"){
+                //Aceros Soleras
+                if($(figure).val()=="plate"){
+                    if($('input[name=measures2]:checked').val()=="meters"){
+                        $value2=$('#x2').val()/0.0254;
+                    }
+                    else if($('input[name=measures2]:checked').val()=="inches"){
+                        $value2=$('#x2').val();
+                    }
+                    if($('input[name=measures3]:checked').val()=="meters"){
+                        $value3=$('#x3').val()/0.0254;
+                    }
+                    else if($('input[name=measures3]:checked').val()=="inches"){
+                        $value3=$('#x3').val();
+                    }
                     $value1=$('#x1').val();
+                    $weight=$value1*$value2*$value3*.13;
+                    $('#weight').val($weight);
                 }
-                if($('input[name=x2-btn]:checked').val()=="mm"){
-                    $value2=$('#x2').val()/25.4;
-                }
-                else if($('input[name=x2-btn]:checked').val()=="inches"){
-                    $value2=$('#x2').val();
-                }
-                if($('input[name=x3-btn]:checked').val()=="meters"){
-                    $value3=$('#x3').val();
-                }
-                else if($('input[name=x3-btn]:checked').val()=="inches"){
-                    $value3=$('#x3').val()*0.0254;
-                }
-                $value1=$('#x1').val();
-                $weight=$value1*$value2*$value3*.13;
-                $('#weight').val($weight);
-                $value1=$('#x1').val();
-                $value2=$('#x2').val();
-                $value3=$('#x3').val();
-                $exterior=$value1*$value1*4;
-                $interior=$value2*$value1*4;
-                $weight=($exterior-$interior)*$value3;
-                $('#weight').val($weight);
-            }    
+                //Aceros Barras Huecas
+                if($(subtype).val()=="bh"){
+                    if($('input[name=measures1]:checked').val()=="mm"){
+                        $value1=$('#x1').val()/25.4;
+                    }
+                    else if($('input[name=measures1]:checked').val()=="inches"){
+                        $value1=$('#x1').val();
+                    }
+                    if($('input[name=measures2]:checked').val()=="mm"){
+                        $value2=$('#x2').val()/25.4;
+                    }
+                    else if($('input[name=measures2]:checked').val()=="inches"){
+                        $value2=$('#x2').val();
+                    }
+                    if($('input[name=measures3]:checked').val()=="meters"){
+                        $value3=$('#x3').val();
+                    }
+                    else if($('input[name=measures3]:checked').val()=="inches"){
+                        $value3=$('#x3').val()*0.0254;
+                    }
+                    $weight=$value1*$value2*$value3*.13;
+                    $('#weight').val($weight);
+                    $exterior=$value1*$value1*4;
+                    $interior=$value2*$value1*4;
+                    $weight=($exterior-$interior)*$value3;
+                    
+                    $('#weight').val($weight);
+                }    
+            }
         }
     });
 
