@@ -9,7 +9,7 @@
     <body>
         <div class="table-content">
             <div class="bot-table">
-                <form action="">
+                <form action="table.php">
                     <div class="inputs">
                         <label for="material">MATERIAL</label>
                         <select id="material" name=material>
@@ -68,16 +68,14 @@
                         <label id="lblx3" for="x3"></label>
                         <table>
                             <tr>
-                                <td>
-                                    <input autocomplete="off" step="any" type="number" id="x3" name="x3">
-                                </td>
+                                <td><input autocomplete="off" step="any" type="number" id="x3" name="x3"></td>
                                 <td class="m1">
-                                    <label for="">Pulgadas</label>
-                                    <input class="measures" type="radio" id="radio-inch" name="measures3" value="inches" checked >
+                                    <label id="lbl3x1"></label>
+                                    <input type="radio" class="measures" id="measure3x1" name="measures3" value="" checked >
                                 </td>
                                 <td class="m2">
-                                    <label for="">Metros</label>
-                                    <input class="measures" type="radio" id="radio-mts" name="measures3" value="meters" >
+                                    <label id="lbl3x2"></label>
+                                    <input type="radio" class="measures" id="measure3x2" name="measures3" value="">
                                 </td>
                             </tr>
                         </table>        
@@ -110,7 +108,7 @@
                             </tr>
                         </table>
                     </div>
-                    <button id="submit" class="actionBtns" type="button"><i class="fas fa-check"></i></button>
+                    <button id="submit" class="actionBtns" type="submit"><i class="fas fa-check"></i></button>
                     <button id="cancel" class="actionBtns" type="button"><i class="fas fa-times"></i></button>
                 </form>
             </div>
