@@ -11,9 +11,8 @@
             <div class="bot-table">
                 <form action="table.php">
                     <div class="inputs">
-                        <label for="material">MATERIAL</label>
                         <select id="material" name=material>
-                            <option disabled selected value> Tipo de Material</option>
+                            <option disabled selected value>Selecciona Material</option>
                             <option value="Acero">ACERO</option>
                             <option value="Nylamid">NYLAMID</option>
                             <option value="Aluminio">ALUMINIO</option>
@@ -21,19 +20,16 @@
                         </select>
                     </div>
                     <div class="inputs">
-                        <label for="subtype">SUBTIPO</label>
                         <select name="subtype" id="subtype">
-                            <option value="----------">-----------</option>
+                            <option disabled selected value>Selecciona Tipo de Material</option>
                         </select>
                     </div>
                     <div class="inputs figure">
-                        <label  for="figure">FORMA</label>
                         <select  name="figure" id="figure">
-                            <option value="----------">-----------</option>
+                            <option disabled selected value>Selecciona Tipo de Material</option>
                         </select>
                     </div>
                     <div class="inputs x1 grey">
-                        <label id="lblx1" for="x1"></label>
                         <table class="m1-table">
                             <tr>
                                 <td><input autocomplete="off" step="any" type="number" id="x1" name="x1"></td>
@@ -49,7 +45,6 @@
                         </table>  
                     </div>  
                     <div class="inputs x2 grey">
-                        <label id="lblx2" for="x2"></label>
                         <table>
                             <tr>
                                 <td><input autocomplete="off" step="any" type="number" id="x2" name="x2"></td>
@@ -84,27 +79,32 @@
                         <table>
                             <tr>
                                 <td width="33.3%">
-                                    <label id="currencyLbl" for="price">PRECIO X KILO</label>
-                                    <span class="currency">$</span><input type="number" id="price" name="price" autocomplete="off">
+                                    <span class="currency">$</span><input type="number" id="price" name="price" autocomplete="off" placeholder="Precio X Kilo">
                                 </td>
                                 <td width="33.3%">
-                                    <label for="weight">PESO</label>
-                                    <input type="number" class="auxinch grey" name="weight" id="weight" autocomplete="off" readonly><strong>Kgs</strong>
+                                    <input type="number" class="auxinch grey" name="weight" id="weight" autocomplete="off" readonly placeholder="Peso"><strong>Kgs</strong>
                                 </td>
                                 <td width="33.3%">
-                                    <label for="aggregate">Agregar</label>
-                                    <input class="auxinch grey" autocomplete="off"  type="number" step="any" id="aggragate" name="aggragate" value="0.0"><strong>Kgs</strong>
+                                    <input class="auxinch grey" autocomplete="off"  type="number" step=".1" min="0" id="aggragate" name="aggragate"  placeholder="+ peso"><strong>Kgs</strong>
                                 </td>
                             </tr>
                         </table>                        
                     </div>
+                    <div id="cutTable">
+                        <table>
+                            <tr>
+                                <th>Piezas</th>
+                                <th>Cortes</th>
+                            </tr>
+                            <tr>
+                                <td><input  value="1" min="0" step="1" type="number" name="quantity" id="quantity" autocomplete="off"><strong>Pzs.</strong></td>
+                                <td><input id="cut" name="cut" type="number" min="0" placeholder="#" autocomplete="off" step="1"><span>cortes</span></td>
+                            </tr>
+                        </table>
+                    </div>
                     <div class="inputs quant">
                         <table>
                             <tr>
-                                <td>
-                                    <label for="quantity">CANTIDAD</label>
-                                    <input  value="1" min="0" step="1" type="number" name="quantity" id="quantity" autocomplete="off">
-                                </td>
                                 <td>
                                     <label for="totalQ">TOTAL</label>
                                     <input type="text" class="auxinch" name="totalQ" id="totalQ" autocomplete="off" readonly>

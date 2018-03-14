@@ -1,7 +1,6 @@
 $( document ).ready(function() {
     //**********ADDING ITEM START***************
     //ALL THIS IS FOR ADDING AN ITEM
-
     $material = $("select[name='material']");
     $subtype = $("select[name='subtype']");
     $figure = $("select[name='figure']");
@@ -14,7 +13,7 @@ $( document ).ready(function() {
         $('#weight').val("");
         if($(material).val()=="Acero"){
             $("select[name='subtype'] option").remove();
-            $("<option disabled selected value> Tipo de Acero</option>").appendTo($subtype);
+            $("<option disabled selected value>Tipo de Acero</option>").appendTo($subtype);
             $("<option value='1018'>1018</option>").appendTo($subtype);
             $("<option value='1045'>1045</option>").appendTo($subtype);
             $("<option value='tratado'>4140 Tratado</option>").appendTo($subtype);
@@ -57,6 +56,7 @@ $( document ).ready(function() {
         $("#lbl3x2").empty();
         $("#lbl3x2").append("Metros");
         $("#measure3x2").val("meters");
+        $('#cutTable').show;
         if($(material).val()=="Acero"){
             if($(subtype).val()!="bh"){
                 $( ".figure" ).show();
@@ -88,12 +88,9 @@ $( document ).ready(function() {
                 $( ".x2" ).show();
                 $( ".x3" ).show();
                 $(".m1-table .m2").show();
-                $("#lblx1").empty();
-                $("#lblx1").append("Diametro Externo");
-                $("#lblx2").empty();
-                $("#lblx2").append("Diametro Interno");
-                $("#lblx3").empty();
-                $("#lblx3").append("Largo");
+                $('#x1').attr("placeholder","Diametro Externo");
+                $('#x2').attr("placeholder","Diametro Interno");
+                $('#x3').attr("placeholder","Largo");
                 $("#lbl1x1").empty();
                 $("#lbl1x1").append("Milimetros");
                 $("#measure1x1").val("mm");
@@ -156,49 +153,36 @@ $( document ).ready(function() {
             $( ".x1" ).show();
             $( ".x2" ).show();
             $( ".x3" ).hide();
-            $("#lblx1").empty();
-            $("#lblx1").append("DIAMETRO");
-            $("#lblx2").empty();
-            $("#lblx2").append("LARGO");
+            $('#x1').attr("placeholder","Diametro");
+            $('#x2').attr("placeholder","Largo");
         }
         if($(figure).val()=="plate"){
             $( ".x1" ).show();
             $( ".x2" ).show();
             $( ".x3" ).show();
-            $("#lblx1").empty();
-            $("#lblx1").append("ESPESOR");
-            $("#lblx2").empty();
-            $("#lblx2").append("ANCHO");
-            $("#lblx3").empty();
-            $("#lblx3").append("LARGO");
+            $('#x1').attr("placeholder","Espesor");
+            $('#x2').attr("placeholder","Ancho");
+            $('#x3').attr("placeholder","Largo");
         }
         if($(figure).val()=="square" || $(figure).val()=="hex"){
             $( ".x1" ).show();
             $( ".x2" ).show();
             $( ".x3" ).hide();
-            $("#lblx1").empty();
-            $("#lblx1").append("LADO");
-            $("#lblx2").empty();
-            $("#lblx2").append("LARGO");
+            $('#x1').attr("placeholder","Lado");
+            $('#x2').attr("placeholder","Largo");
         }
         if($(figure).val()=="buje"){
             $( ".x1" ).show();
             $( ".x2" ).show();
             $( ".x3" ).show();
-            $("#lblx1").empty();
-            $("#lblx1").append("DIAMETRO INTERNO");
-            $("#lblx2").empty();
-            $("#lblx2").append("DIAMETRO EXTERNO");
-            $("#lblx3").empty();
-            $("#lblx3").append("LARGO");
+            $('#x1').attr("placeholder","Diametro Externo");
+            $('#x2').attr("placeholder","Diametro Interno");
+            $('#x3').attr("placeholder","Largo");
             if($(material).val()=="Bronce"){
                 $(".m1-table .m2").show();
-                $("#lblx1").empty();
-                $("#lblx1").append("Diametro Externo");
-                $("#lblx2").empty();
-                $("#lblx2").append("Diametro Interno");
-                $("#lblx3").empty();
-                $("#lblx3").append("Largo");
+                $('#x1').attr("placeholder","Diametro Externo");
+                $('#x2').attr("placeholder","Diametro Interno");
+                $('#x3').attr("placeholder","Largo");
                 $("#lbl1x1").empty();
                 $("#lbl1x1").append("Milimetros");
                 $("#measure1x1").val("mm");
@@ -390,6 +374,7 @@ $( document ).ready(function() {
         }
     });
     $("#price , #quantity").change(function() {
+
         $price=$('#price').val() *$('#weight').val()* $('#quantity').val();
         $('#totalQ').val($price);
     });

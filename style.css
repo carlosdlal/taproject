@@ -124,15 +124,30 @@ button{
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
 }
+
 .x1, .x2, .x3{
     display: none;
     width: 100%;
-    height: 60px;
+    height: 44px;
+}
+.m1{
+    background-color: #4CAF50;
+}
+.m2{
+    background-color: #0288D1;
+}
+.m1, .m2{
+    text-align: center;
+    width: 80px;
+    border-radius: 17%;
+}
+#x1, #x2, #x3{
+    width: 135px;
 }
 .price{
     display: none;
     width: 100%;
-    height: 60px;
+    height: 50px;
 }
 .metric{
     width: auto;
@@ -158,8 +173,8 @@ input[type=number]#price{
 .grey{
     background-color: lightgray;
 }
-#currencyLbl{
-    font-size: 12px;
+input#price::-webkit-input-placeholder {
+    font-size: 8px;
 }
 #weight, #totalQ{
     font-size: 15px;
@@ -167,6 +182,9 @@ input[type=number]#price{
     width: 70px;
     margin-left: 10px;
     text-align:right;
+}
+#weight, #aggragate{
+    width: 66px;
 }
 .quant{
     display: none;
@@ -201,4 +219,24 @@ input[type=number]#price{
 }
 #aggregate{
     width: 40px;
+}
+#cutTable{
+    height: 60px;
+}
+#cutTable table{
+    width: 100%;
+    height: 36px;
+}
+#cutQ{
+    display: none;
+}
+#cut{
+    width: 74px;
+}
+#cutTable tr{
+    width: 100%;
+}
+#cutTable td{
+    width: 50%;
+    text-align: center;
 }
