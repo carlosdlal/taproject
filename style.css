@@ -188,6 +188,8 @@ input#price::-webkit-input-placeholder {
 }
 .quant{
     display: none;
+    margin-top: 12px;
+    border-top-style: solid;
 }
 #quantity{
     width: 50px;
@@ -239,4 +241,8 @@ input#price::-webkit-input-placeholder {
 #cutTable td{
     width: 50%;
     text-align: center;
+    margin-top: 5px;
+}
+.lblprice{
+    display: inline; 
 }
