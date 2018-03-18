@@ -183,8 +183,11 @@ input#price::-webkit-input-placeholder {
     margin-left: 10px;
     text-align:right;
 }
-#weight, #aggragate{
-    width: 66px;
+#weight, #aggregate{
+    width: 70px;
+}
+#aggregate{
+    cursor: auto;
 }
 .quant{
     display: none;
@@ -219,9 +222,7 @@ input#price::-webkit-input-placeholder {
 .m1 label, .m2 label{
     font-weight: 100;
 }
-#aggregate{
-    width: 40px;
-}
+
 #cutTable{
     height: 60px;
 }

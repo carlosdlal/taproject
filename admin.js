@@ -7,7 +7,7 @@ $( document ).ready(function() {
     $value1="";
     $value2="";
     $value3="";
-    $weight=0.0;
+    $weight="";
     $price="";
     $material.change(function(){
         $('#weight').val("");
@@ -199,7 +199,7 @@ $( document ).ready(function() {
         }
 
     });
-    $("#x1, #x2, #x3 , .measures, #price").change(function() {
+    $("#x1, #x2, #x3 , .measures, #price, #aggregate").change(function() {
         $('#weight').val("");
         //Materiales Redondos, Cuadrados y Hexagonales
         if($('#x1').val()!="" && $('#x2').val()!="" && $('#x3').val()==""){
@@ -210,12 +210,14 @@ $( document ).ready(function() {
                         $value1=$('#x1').val();
                         $value2=$('#x2').val();
                         $weight=((Math.pow($value1,2)*4)*$value2);
+                        alert($weight+parseFloat($('#aggregate').val()));
                         $('#weight').val($weight);
                     }
                     else if($('input[name=measures2]:checked').val()=="inches"){
                         $value1=$('#x1').val();
                         $value2=$('#x2').val()*0.0254;
                         $weight=($value1*$value1*4*$value2);
+                        alert($weight+parseFloat($('#aggregate').val()));
                         $('#weight').val($weight);
                     }
                 }
